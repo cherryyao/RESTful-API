@@ -15,8 +15,8 @@ public class EmployeeService implements EmployeeDao {
 
     @Override
     public List<Employee> getAllEmployees() {
-        EmployeeList.add(new Employee(1,"aaa",22,"male"));
-        EmployeeList.add(new Employee(2,"bbbb",22,"female"));
+//        EmployeeList.add(new Employee(1,"aaa",22,"male"));
+//        EmployeeList.add(new Employee(2,"bbbb",22,"female"));
         return EmployeeList;
     }
 

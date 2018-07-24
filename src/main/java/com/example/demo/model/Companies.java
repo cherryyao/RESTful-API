@@ -3,14 +3,16 @@ package com.example.demo.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CompaniesDao {
+public class Companies {
+    private int id;
     private String companyName;
     private int employeesNumber;
     private List<Employee> EmployeeList = new ArrayList<>();
 
-    public CompaniesDao(){}
+    public Companies(){}
 
-    public CompaniesDao(String companyName, int employeesNumber, List<Employee> employeeList) {
+    public Companies(int id,String companyName, int employeesNumber, List<Employee> employeeList) {
+        this.id = id;
         this.companyName = companyName;
         this.employeesNumber = employeesNumber;
         EmployeeList = employeeList;
@@ -38,5 +40,13 @@ public class CompaniesDao {
 
     public void setEmployeeList(List<Employee> employeeList) {
         EmployeeList = employeeList;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
