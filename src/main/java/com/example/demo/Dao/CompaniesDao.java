@@ -11,4 +11,8 @@ public interface CompaniesDao {
     Companies getSpecificCompanies(int id);
 
     List<Companies> addCompany(int id, String companyName, int employeesNumber, List<Employee> employeeList);
+
+    List<Companies> updateCompanies(int id, Companies companies);
+
+    List<Companies> deleteCompany(int id);
 }

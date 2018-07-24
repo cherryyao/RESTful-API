@@ -24,13 +24,27 @@ public class CompaniesController {
     }
 
     @PostMapping("/companies")
-    public List<Companies> add(@RequestBody Companies company) {
+    public List<Companies> addCompany(@RequestBody Companies company) {
         int id = company.getId();
         String companyName = company.getCompanyName();
         int EmployeesNumber = company.getEmployeesNumber();
         List<Employee> employeeList =company.getEmployeeList();
         return companiesService.addCompany(id,companyName,EmployeesNumber,employeeList);
     }
+
+    @PutMapping("/companies/{id}")
+    public List<Companies> updateCompanies(@PathVariable int id,@RequestBody Companies companies){
+        return companiesService.updateCompanies(id,companies);
+    }
+
+    @DeleteMapping("companies/{id}")
+    public List<Companies> deleteCompany(@PathVariable int id){
+        return companiesService.deleteCompany(id);
+    }
+
+
+
+
 
 
 }

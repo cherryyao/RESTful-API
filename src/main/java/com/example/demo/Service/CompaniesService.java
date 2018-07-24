@@ -13,14 +13,16 @@ import java.util.List;
 public class CompaniesService implements CompaniesDao {
     private List<Companies> CompaniesList = new ArrayList<>();
 
+
     @Override
     public List<Companies> getAllCompanies(){
-//        Employee employee1 = new Employee(1,"aaa",22,"male");
-//        Employee employee2 = new Employee(2,"bbb",22,"male");
-//        List<Employee> EmployeeList = new ArrayList<>();
-//        EmployeeList.add(employee1);
-//        EmployeeList.add(employee2);
-//        CompaniesList.add(new Companies(1,"alibaba",2,EmployeeList));
+        Employee employee1 = new Employee(1,"aaa",22,"male");
+        Employee employee2 = new Employee(2,"bbb",22,"male");
+        List<Employee> EmployeeList = new ArrayList<>();
+        EmployeeList.add(employee1);
+        EmployeeList.add(employee2);
+        CompaniesList.add(new Companies(1,"alibaba",2,EmployeeList));
+        CompaniesList.add(new Companies(2,"OOCL",2,EmployeeList));
         return CompaniesList;
     }
 
@@ -39,6 +41,30 @@ public class CompaniesService implements CompaniesDao {
     public List<Companies> addCompany(int id, String companyName, int employeesNumber, List<Employee> employeeList){
         CompaniesList.add(new Companies(id,companyName,employeesNumber,employeeList));
         return CompaniesList;
+    }
+
+    @Override
+    public List<Companies> updateCompanies(int id, Companies companies){
+        for (Companies company:CompaniesList)
+        {
+            if (id == company.getId()){
+                company.setCompanyName(companies.getCompanyName());
+                company.setEmployeesNumber(companies.getEmployeesNumber());
+                company.setEmployeeList(companies.getEmployeeList());
+            }
+        }
+        return CompaniesList;
+    }
+
+    @Override
+    public List<Companies> deleteCompany(int id){
+        for(Companies company:CompaniesList){
+            if (id == company.getId()){
+                CompaniesList.remove(company);
+                return CompaniesList;
+            }
+        }
+        return null;
     }
 
 }
