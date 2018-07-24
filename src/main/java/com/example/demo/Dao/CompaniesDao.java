@@ -15,4 +15,6 @@ public interface CompaniesDao {
     List<Companies> updateCompanies(int id, Companies companies);
 
     List<Companies> deleteCompany(int id);
+
+    List<Companies> paging(int page, int size);
 }

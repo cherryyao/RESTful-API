@@ -66,5 +66,15 @@ public class CompaniesService implements CompaniesDao {
         }
         return null;
     }
+    @Override
+    public  List<Companies> paging(int page, int pageSize){
+        List<Companies> result = new ArrayList<>();
+        int start = (page-1)*pageSize;
+        int end = (start+pageSize)>CompaniesList.size() ? CompaniesList.size() : (start+pageSize);
+        for(int i=start;i<end;i++){
+            result.add(CompaniesList.get(i));
+        }
+        return result;
+    }
 
 }

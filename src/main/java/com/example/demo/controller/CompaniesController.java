@@ -28,6 +28,11 @@ public class CompaniesController {
         return companiesService.getSpecificCompanies(id).getEmployeeList();
     }
 
+    @GetMapping("/companies/page/{page}/pageSize/{size}")
+    public List<Companies> Paging(@PathVariable int page,@PathVariable int size){
+        return companiesService.paging(page,size);
+    }
+
     @PostMapping("/companies")
     public List<Companies> addCompany(@RequestBody Companies company) {
         int id = company.getId();
@@ -46,6 +51,8 @@ public class CompaniesController {
     public List<Companies> deleteCompany(@PathVariable int id){
         return companiesService.deleteCompany(id);
     }
+
+
 
 
 
